@@ -1,3 +1,4 @@
+Dash Inder Instruction
 -Run in foreground (easy to watch logs)
 cd /root/dash-indexer
 export DATABASE_URL="sqlite://dashymarket_indexer.db"
