@@ -1,0 +1,10 @@
+target/
+dash_indexer.db
+.env
+
+*.md
+*.log
+*.sh
+*.db-journal
+*.db.bak-*
+*.pid

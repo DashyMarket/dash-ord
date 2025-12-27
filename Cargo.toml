@@ -1,0 +1,61 @@
+[package]
+name = "dash-indexer"
+version = "0.1.0"
+edition = "2021"
+authors = ["Dash Indexer Team"]
+description = "High-performance Dash blockchain indexer for Ordinals and DAR-20 tokens"
+license = "MIT"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+
+# Web framework
+axum = { version = "0.7", features = ["macros"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Database
+sqlx = { version = "0.7", features = ["runtime-tokio", "sqlite", "postgres"] }
+
+# HTTP client for RPC
+reqwest = { version = "0.11", features = ["json"] }
+
+# Bitcoin/Dash primitives
+bitcoin = { version = "0.31", features = ["serde"] }
+hex = "0.4"
+bs58 = "0.5"
+
+# Hashing
+sha2 = "0.10"
+ripemd = "0.1"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Config
+dotenvy = "0.15"
+config = "0.14"
+
+# CLI
+clap = { version = "4.4", features = ["derive"] }
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Utilities
+chrono = { version = "0.4", features = ["serde"] }
+base64 = "0.21"
+futures = "0.3"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
