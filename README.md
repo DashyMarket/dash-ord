@@ -4,18 +4,22 @@
 
 A high-performance, Rust-based indexer for Ordinals-style inscriptions and related protocols on the **Dash** blockchain.
 
-This project tracks digital artifacts inscribed on Dash satoshis (similar to Bitcoin Ordinals) and supports emerging token standards on Dash (e.g., DAR-20 or equivalent).
+This project tracks digital artifacts inscribed on Dash satoshis (similar to Bitcoin Ordinals) and supports emerging token standards on Dash (e.g., **DAR-20** or equivalent).
 
-> **Note:** This repository is under active development. Features and documentation will evolve as the project matures.
+> ⚠️ **Note:** This repository is under active development. Features and documentation may change as the project matures.
+
+---
 
 ## Features
 
 - Real-time indexing of the Dash blockchain
-- Detection and parsing of Ordinals inscriptions
+- Detection and parsing of Ordinals-style inscriptions
 - Storage of inscription metadata and content
 - SQLite database backend (default)
 - Efficient, memory-safe implementation in Rust
-- Backup support for database safety
+- Database backup support
+
+---
 
 ## Prerequisites
 
@@ -23,48 +27,103 @@ This project tracks digital artifacts inscribed on Dash satoshis (similar to Bit
 - A running Dash node (`dashd`) with RPC enabled
 - Access to the full Dash blockchain
 
+---
+
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/DashyMarket/dash-ord.git
    cd dash-ord
-	2	Build the project: cargo build --release
-	3	 The executable will be located at target/release/ (binary name depends on Cargo.toml – typically dash-ord or similar).
+
+	2.	Build the project
+
+cargo build --release
+
+
+	3.	Locate the binary
+The compiled executable will be located in:
+
+target/release/
+
+The binary name depends on Cargo.toml (typically dash-ord).
+
+⸻
+
 Configuration
-Configuration is primarily handled via environment variables or a config file (check the source code for exact details).
-Common required settings:
-	•	Dash RPC URL, username, and password
-	•	Database path (defaults to SQLite file dashymarket_indexer.db)
-Example:
+
+Configuration is handled via environment variables or a config file (refer to the source code for exact options).
+
+Required Settings
+	•	Dash RPC URL
+	•	Dash RPC username
+	•	Dash RPC password
+	•	Database path (defaults to dashymarket_indexer.db)
+
+Example
+
 export DASH_RPC_URL="http://localhost:9998"
 export DASH_RPC_USER="your_rpc_user"
 export DASH_RPC_PASS="your_rpc_password"
+
+
+⸻
+
 Usage
-Basic commands (adjust based on actual binary name and available subcommands):
+
+Basic commands (adjust if the binary name differs):
+
 # Start indexing from the current chain tip
 ./target/release/dash-ord index
 
-# Reindex from genesis or a specific height
+# Reindex from genesis or a specific block height
 ./target/release/dash-ord reindex --from-height 0
 
-# Show help for all available commands
+# Display help and available commands
 ./target/release/dash-ord --help
+
+
+⸻
+
 Database
-	•	Default: SQLite database file dashymarket_indexer.db
-	•	Stores blocks, inscriptions, satoshi ranges, and metadata
+	•	Default: SQLite database (dashymarket_indexer.db)
+	•	Stores:
+	•	Blocks
+	•	Inscriptions
+	•	Satoshi ranges
+	•	Metadata
 	•	Database backups can be stored in the backups/ directory
+
+⸻
+
 Contributing
-Contributions are welcome! Feel free to:
-	•	Open issues for bugs or feature requests
-	•	Submit pull requests with improvements
-	•	Enhance documentation
-	•	Add tests or optimize performance
-Please adhere to Rust coding conventions and include tests where applicable.
+
+Contributions are welcome! You can help by:
+	•	Opening issues for bugs or feature requests
+	•	Submitting pull requests with improvements
+	•	Enhancing documentation
+	•	Adding tests or optimizing performance
+
+Please follow Rust coding conventions and include tests where applicable.
+
+⸻
+
 License
-This project is open source. A LICENSE file will be added soon (recommended: MIT or Apache 2.0).
+
+This project is open source.
+
+A LICENSE file will be added soon.
+Recommended licenses: MIT or Apache-2.0
+
+⸻
+
 Acknowledgments
 	•	Inspired by the Bitcoin Ordinals protocol and existing indexers
 	•	Built specifically for the Dash ecosystem by DashyMarket
-For support or questions, please open an issue on this repository.
+
+⸻
+
+Support
+
+For questions, issues, or feature requests, please open an issue in this repository.
 
